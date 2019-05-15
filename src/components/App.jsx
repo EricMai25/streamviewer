@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import Api from '../../Configs/credentials.json';
+import GoogleLogin from 'react-google-login';
 
 
 class App extends React.Component{
@@ -12,7 +14,7 @@ class App extends React.Component{
             <div>
                 Hello World
             </div>
-        )
+        )   
     }
 }
 
