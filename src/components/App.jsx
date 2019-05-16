@@ -1,5 +1,4 @@
 import React from 'react';
-import Api from '../../Configs/credentials.json';
 import GoogleLogin from 'react-google-login';
 import axios from 'axios'
 
