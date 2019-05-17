@@ -8,9 +8,15 @@ class App extends React.Component {
     super(props);
     this.state = {
       video: null,
-      messages: [],
-      username: "",
-      icon: ""
+      messages: [
+          {user : 'Kevin',
+           message : 'Hey there' },
+           {user: 'Kevin',
+            message : 'Hell yea'},
+            {user: 'Nat',
+            message: 'Hi Kevin'}
+      ],
+      user : null
     };
   }
 
@@ -29,7 +35,18 @@ class App extends React.Component {
       });
   }
   responseGoogle(response) {
-    console.log(response);
+    console.log(response.profileObj);
+    let profile = response.profileObj
+    this.setState({
+        user : profile
+    })
+  }
+
+  googleLogout(){
+      console.log('hello')
+      this.setState({
+          user : null
+      })
   }
   addMessage(message) {
     let mbox = this.state.messages;
@@ -43,7 +60,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Nav gRes={this.responseGoogle.bind(this)} />
+        <Nav gRes={this.responseGoogle.bind(this)} glogout={this.googleLogout.bind(this)} user={this.state.user}/>
         <Home video={this.state.video} />
         <Chat msgs={this.state.messages} add={this.addMessage.bind(this)} />
       </div>

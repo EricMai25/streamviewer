@@ -13,7 +13,7 @@ class Nav extends React.Component {
   render() {
     return (
       <div>
-        {this.state.login === false ? (
+        {this.props.user === null ?
           <GoogleLogin
             clientId={KEY.web.client_id}
             icon="true"
@@ -22,9 +22,14 @@ class Nav extends React.Component {
             onFailure={this.props.gRes}
             cookiePolicy={"single_host_origin"}
           />
-        ) : (
-          <GoogleLogout buttonText="Logout" />
-        )}
+         
+        : 
+        <div>
+            <div>{this.props.user.name}</div>
+            <img src={this.props.user.imageUrl} alt="Smiley face"/>
+          <GoogleLogout buttonText="Logout" onLogoutSuccess={this.props.glogout} />
+        </div>
+        }
       </div>
     );
   }

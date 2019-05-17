@@ -1,4 +1,6 @@
 import React from 'react';
+import Input from './chatComponents/Input.jsx'
+import Message from './chatComponents/Message.jsx'
 
 class ChatRoom extends React.Component{
     constructor(props){
@@ -17,15 +19,11 @@ class ChatRoom extends React.Component{
             <div>
                 <div>Chat Room</div>
                 <div>
-                    {this.props.msgs}
+                    {this.props.msgs.map((item)=>{
+                        return <Message msg={item}/>
+                    })}
                 </div>
-                <div>
-                    <input onChange={(e)=>{
-                        this.setState({message:e.target.value})
-                        console.log(this.state.message)
-                        }}></input>
-                    <button onClick={()=>{this.props.add(this.state.message)}}>submit</button>
-                </div>
+                <Input/>
             </div>
         )
     }
