@@ -2,21 +2,16 @@ import React from "react";
 import Chat from "./Chatbox.jsx";
 import Nav from "./Nav.jsx";
 import Home from "./Home.jsx";
+import { database } from "./database/Firebase";
+import styles from "./Css/App.css";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       video: null,
-      messages: [
-          {user : 'Kevin',
-           message : 'Hey there' },
-           {user: 'Kevin',
-            message : 'Hell yea'},
-            {user: 'Nat',
-            message: 'Hi Kevin'}
-      ],
-      user : null
+      messages: [],
+      user: null
     };
   }
 
@@ -29,40 +24,64 @@ class App extends React.Component {
         return data.json();
       })
       .then(videodata => {
+        console.log("hello there");
         this.setState({
-          video: videodata.items[0].id.videoId
+          video: "hHW1oY26kxQ"
         });
       });
+
+    //videodata.items[0].id.videoId
+    var dataMessage = database.ref("hHW1oY26kxQ").limitToLast(10);
+
+    // dataMessage.on("value", snapshot => {
+    //   let collection = Object.values(snapshot.val());
+
+    //   this.setState({
+    //     messages: collection
+    //   });
+    // });
   }
   responseGoogle(response) {
-    console.log(response.profileObj);
-    let profile = response.profileObj
+    let profile = response.profileObj;
     this.setState({
-        user : profile
-    })
+      user: profile
+    });
   }
 
-  googleLogout(){
-      console.log('hello')
-      this.setState({
-          user : null
-      })
-  }
-  addMessage(message) {
-    let mbox = this.state.messages;
-    let totalmessage = mbox.push(message);
+  googleLogout() {
     this.setState({
-      messages: totalmessage
+      user: null
     });
-    console.log(this.state.messages);
+  }
+
+  onAddMessage(message) {
+    console.log("sent");
+    // database
+    //   .ref(this.state.video)
+    //   .push({ user: this.state.user, msg: message });
   }
 
   render() {
     return (
       <div>
-        <Nav gRes={this.responseGoogle.bind(this)} glogout={this.googleLogout.bind(this)} user={this.state.user}/>
-        <Home video={this.state.video} />
-        <Chat msgs={this.state.messages} add={this.addMessage.bind(this)} />
+        <Nav
+          gRes={this.responseGoogle.bind(this)}
+          glogout={this.googleLogout.bind(this)}
+          user={this.state.user}
+        />
+        <div className="gridBase">
+          <div className="gridApp">
+            <Home video={this.state.video} />
+          </div>
+          <div className="gridApp">
+            <Chat
+              user={this.state.user}
+              msgs={this.state.messages}
+              add={this.onAddMessage.bind(this)}
+              video={this.state.video}
+            />
+          </div>
+        </div>
       </div>
     );
   }

@@ -13,12 +13,15 @@ export default class Input extends React.Component {
           <input
             onChange={e => {
               this.setState({ message: e.target.value });
-              console.log(this.state.message);
             }}
           />
           <button
             onClick={() => {
-              this.props.add(this.state.message);
+              if (this.props.user) {
+                this.props.add(this.state.message);
+              }else{
+                  alert('Please Login to Start Chatting')
+              }
             }}
           >
             Send

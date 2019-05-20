@@ -1,0 +1,16 @@
+body{
+    margin : 0;
+}
+
+.gridBase {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    padding: 10px;
+}
+
+.gridApp{
+    padding: 20px;
+    height: 500px;
+    font-size: 30px;
+    text-align: center;
+}

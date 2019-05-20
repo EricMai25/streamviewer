@@ -1,0 +1,71 @@
+ul {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px
+  }
+  
+  li {
+    height:100%;
+    width: 100%;
+    float: left;
+  }
+  
+  li a {
+    height: 100%;
+    width: 100px;
+    display: block;
+    color: white;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #111;
+  }
+
+
+.userImage {
+    display: inline-block;
+    border-radius : 50%;
+    vertical-align: middle;
+    height: 50px;
+    width: 50px;
+}
+
+.name{
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 5px 5px;
+    text-decoration: none;
+}
+
+.login{
+    height: 50%;
+    float: right;
+    padding: 15px 15px;
+}
+
+.logged{
+    display: inline-block;
+    vertical-align: middle;
+
+}
+.siteName{
+    font-size: 20px;
+    text-align: center;
+    display:block;
+    color: white;
+}
+
+.grid{
+    text-align: center;
+}
