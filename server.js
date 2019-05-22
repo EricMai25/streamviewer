@@ -9,7 +9,7 @@ let gApi = process.env.gApi;
 let ytApi = process.env.YoutubeApi
 
 const app = express();
-const port = 3123;
+const port =process.env.PORT || 3123;
 
  
 app.use(bodyParser.json());
