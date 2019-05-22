@@ -3,11 +3,11 @@ import styles from './Css/Video.css'
 
 const video = props => {
   return (
-    <div>
+    <div style={{height: '100%'}}>
       <iframe
         src={"http://www.youtube.com/embed/" + props.video.id.videoId}
         width="100%"
-        height="500"
+        height="70%"
         frameBorder="0"
         allowFullScreen
       />

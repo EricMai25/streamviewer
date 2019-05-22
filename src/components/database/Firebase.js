@@ -1,9 +1,12 @@
 import * as firebase from 'firebase'
 // import {firebaseConfig} from  '../../../configs/FbConfig.js'
-import {fbApi} from '../../../server/server.js'
+// import {fbApi} from '../../../server.js'
+import {firebaseConfig} from '../../source.js'
+console.log(firebaseConfig.databaseURL)
+firebase.initializeApp(firebaseConfig);
+// firebase.initializeApp(fbApi);
+// firebase.initializeApp(process.env.firebaseConfig);
 
-// firebase.initializeApp(firebaseConfig);
-firebase.initializeApp(fbApi);
 const database = firebase.database();
 
 export {

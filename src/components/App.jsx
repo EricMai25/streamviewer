@@ -10,29 +10,30 @@ class App extends React.Component {
     super(props);
     this.state = {
       video: [{id:{videoId : "hHW1oY26kxQ"},snippet :{user : "something" , description : 'something'}}],
+      // video: [],
       messages: [],
-      user: null
+      user: null,
     };
   }
 
   componentDidMount() {
-      // this.getFirebase()
-    fetch("/video", {
-      method: "GET",
-      headers: { "Content-type": "application/json" }
-    })
-      .then(data => {
-        return data.json();
-      })
-      .then(videodata => {
-        this.setState({
-          video: videodata.items
-        });
-        this.getFirebase()
-      })
-      .catch(error=>{
-          console.log(error)
-      })
+      this.getFirebase()
+    // fetch("/video", {
+    //   method: "GET",
+    //   headers: { "Content-type": "application/json" }
+    // })
+    //   .then(data => {
+    //     return data.json();
+    //   })
+    //   .then(videodata => {
+    //     this.setState({
+    //       video: videodata.items
+    //     });
+    //     this.getFirebase()
+    //   })
+    //   .catch(error=>{
+    //       console.log(error)
+    //   })
   }
   getFirebase(){
     let dataMessage = database

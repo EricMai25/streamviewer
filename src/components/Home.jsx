@@ -3,7 +3,7 @@ import Video from './Video.jsx'
 
 const home = props => {
   return (
-    <div>
+    <div style={{height: '100%'}}>
       {props.video.map(vids =>{
         return <Video video={vids}/>
       })}
