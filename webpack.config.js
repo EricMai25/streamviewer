@@ -6,6 +6,11 @@ module.exports = {
     path: path.resolve(__dirname, "public")
   },
   mode: "production",
+  node: {
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
+  },
   devtool: "inline-source-map",
   module: {
     rules: [
