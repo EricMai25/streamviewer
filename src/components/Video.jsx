@@ -5,7 +5,7 @@ const video = props => {
   return (
     <div style={{height: '100%'}}>
       <iframe
-        src={"http://www.youtube.com/embed/" + props.video.id.videoId}
+        src={"https://www.youtube.com/embed/" + props.video.id.videoId}
         width="100%"
         height="70%"
         frameBorder="0"
