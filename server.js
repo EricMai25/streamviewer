@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, "./public")));
 
 app.get("/video", (req, res) => {
   axios
-    .get("//www.googleapis.com/youtube/v3/search?part=snippet", {
+    .get("https://www.googleapis.com/youtube/v3/search?part=snippet", {
       params: {
         eventType: "live",
         type: "video",
