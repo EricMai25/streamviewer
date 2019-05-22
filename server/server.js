@@ -2,7 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const axios = require("axios");
-const KEY = require("../configs/config.json");
+// const KEY = require("../configs/config.json");
+let fpApi = process.env.firebaseConfig;
+let gApi = process.env.gApi;
+let ytApi = process.env.YoutubeApi
 
 const app = express();
 const port = 3123;
@@ -21,12 +24,11 @@ app.get("/video", (req, res) => {
         videoEmbeddable: "true",
         videoCategoryId: 20,
         maxResults: 1,
-        // key: ytApi
-        key: KEY.api
+        key: ytApi
+        // key: KEY.api
       }
     })
     .then(response => {
-
       res.send(response.data);
     })
     .catch(error => {
@@ -38,7 +40,7 @@ app.listen(port, () => {
   console.log("Listening to " + port);
 });
 
-// module.exports = {
-//     firebase = process.env.firebaseConfig,
-//     gApi = process.env.gApi
-// }
+module.exports = {
+    fpApi,
+    gApi
+}
