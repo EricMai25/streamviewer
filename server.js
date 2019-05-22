@@ -3,9 +3,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const axios = require("axios");
 require('dotenv').config()
-// let fpApi = process.env.firebaseConfig;
-// let gApi = process.env.gApi;
-// let ytApi = process.env.YoutubeApi
+let ytApi = process.env.YoutubeApi
 
 const app = express();
 const port =process.env.PORT || 3123;

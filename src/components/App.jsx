@@ -60,7 +60,6 @@ class App extends React.Component {
   }
 
   onAddMessage(message) {
-    console.log("sent");
     database
       .ref(this.state.video[0].id.videoId)
       .push({ user: this.state.user, msg: message });

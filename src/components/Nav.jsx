@@ -1,6 +1,6 @@
 import React from "react";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
-import {gConfig} from '../source.js' 
+import { gConfig } from "../source.js";
 import styles from "./Css/Nav.css";
 
 class Nav extends React.Component {
@@ -41,10 +41,7 @@ class Nav extends React.Component {
             ) : (
               <div>
                 <a>
-                  <img
-                    className="userImage"
-                    src={this.props.user.imageUrl}
-                  />
+                  <img className="userImage" src={this.props.user.imageUrl} />
                   <div className="name">{this.props.user.name}</div>
                 </a>
                 <a className="logged">

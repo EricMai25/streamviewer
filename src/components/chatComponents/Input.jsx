@@ -8,11 +8,11 @@ export default class Input extends React.Component {
       message: ""
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     if (this.props.user) {
       this.props.add(this.state.message);
       this.setState({
@@ -21,7 +21,6 @@ export default class Input extends React.Component {
     } else {
       alert("Please Login to Start Chatting");
     }
-
   }
   render() {
     return (

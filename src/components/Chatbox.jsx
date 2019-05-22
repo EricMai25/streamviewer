@@ -10,7 +10,7 @@ class ChatRoom extends React.Component {
       messages: ""
     };
   }
-  
+
   render() {
     return (
       <div className="chatBox">
