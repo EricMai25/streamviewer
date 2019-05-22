@@ -67,7 +67,7 @@ Streamer page:
     Going to establish a collection for the current youtube channel that is shown.
     If Collection does not exist it will make a new table and start filling up messages.
 
-##Design Proecess
+## Design Proecess
 
     Setting up Api:
      Youtube:
@@ -112,7 +112,7 @@ Streamer page:
         Had to add a framework that allows for the use of .env files as the env for heroku is used for config and apis.
         Needed to apply this to the web pack for it to bundle these Apis from the env to global variable allowing for the quick use of env calls.
 
-##Api Experience
+## Api Experience
 
     Google Sign-in - (New) : First time using this api.
     Youtube - (Used) : Was using the wrong one but have use the YT search api once before
