@@ -1,7 +1,7 @@
 import React from "react";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
-// import KEY from "../../configs/config.json";
-import {gApi} from '../../server/server.js'
+import KEY from "../../configs/config.json";
+// import {gApi} from '../../server/server.js'
 import styles from "./Css/Nav.css";
 
 class Nav extends React.Component {
@@ -31,8 +31,8 @@ class Nav extends React.Component {
             {this.props.user === null ? (
               <div>
                 <GoogleLogin
-                  // clientId={KEY.web.client_id}
-                  clientId={gApi}
+                  clientId={KEY.web.client_id}
+                  // clientId={gApi}
                   icon="true"
                   buttonText="Login"
                   onSuccess={this.props.gRes}
