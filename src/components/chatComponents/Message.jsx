@@ -1,12 +1,16 @@
-import React from 'react'
+import React from "react";
+import styles from "../Css/Message.css";
 
-const messages = (props) =>{
-    return(
-        <div>
-            <span>{props.msg.user.name}</span>
-            <p>{props.msg.msg}</p>
-        </div>
-    )
-}
+const messages = props => {
+  return (
+    <div className="mes">
+      <div className="userTitle">
+        <img className="mesImage" src={props.msg.user.imageUrl} />
+        <span className="mesUser">{props.msg.user.name}:</span>
+      </div>
+      <p className="mesWrap">{props.msg.msg}</p>
+    </div>
+  );
+};
 
 export default messages;

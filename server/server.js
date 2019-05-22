@@ -12,25 +12,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '/../public')));
 
 app.get('/video' ,(req,res)=>{
-    // axios.get('https://www.googleapis.com/youtube/v3/search?part=snippet', {
-    //     params : {
-    //         eventType: 'live',
-    //         type:'video',
-    //         regionCode: 'US',
-    //         order: 'viewCount',
-    //         videoEmbeddable: 'true',
-    //         videoCategoryId:20,
-    //         maxResults: 1,
-    //         key: KEY.api
-    //     }
-    // })
-    // .then((response)=>{
-    //     res.send(response.data)
-    // })
-    // .catch(error => {
-    //     console.log( 'Error : '+error)
-    // })
-    res.send({1:'2'})
+    axios.get('https://www.googleapis.com/youtube/v3/search?part=snippet', {
+        params : {
+            eventType: 'live',
+            type:'video',
+            regionCode: 'US',
+            order: 'viewCount',
+            videoEmbeddable: 'true',
+            videoCategoryId:20,
+            maxResults: 1,
+            key: KEY.api
+        }
+    })
+    .then((response)=>{
+        res.send(response.data)
+    })
+    .catch(error => {
+        console.log( 'Error : '+error)
+    })
 })
 
 app.listen(port, () => {

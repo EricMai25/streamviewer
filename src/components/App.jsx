@@ -9,37 +9,43 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      video: null,
+      video: [{id:{videoId : "hHW1oY26kxQ"},snippet :{user : "something" , description : 'something'}}],
       messages: [],
       user: null
     };
   }
 
   componentDidMount() {
-    fetch("/video", {
-      method: "GET",
-      headers: { "Content-type": "application/json" }
-    })
-      .then(data => {
-        return data.json();
-      })
-      .then(videodata => {
-        console.log("hello there");
-        this.setState({
-          video: "hHW1oY26kxQ"
-        });
+      this.getFirebase()
+    // fetch("/video", {
+    //   method: "GET",
+    //   headers: { "Content-type": "application/json" }
+    // })
+    //   .then(data => {
+    //     return data.json();
+    //   })
+    //   .then(videodata => {
+    //     this.setState({
+    //       video: videodata.items
+    //     });
+    //     this.getFirebase()
+    //   })
+    //   .catch(error=>{
+    //       console.log(error)
+    //   })
+  }
+  getFirebase(){
+    let dataMessage = database
+    .ref(this.state.video[0].id.videoId)
+    .limitToLast(100);
+
+    dataMessage.on("value", snapshot => {
+      let collection = Object.values(snapshot.val()).reverse();
+
+      this.setState({
+        messages: collection
       });
-
-    //videodata.items[0].id.videoId
-    var dataMessage = database.ref("hHW1oY26kxQ").limitToLast(10);
-
-    // dataMessage.on("value", snapshot => {
-    //   let collection = Object.values(snapshot.val());
-
-    //   this.setState({
-    //     messages: collection
-    //   });
-    // });
+    });
   }
   responseGoogle(response) {
     let profile = response.profileObj;
@@ -56,19 +62,21 @@ class App extends React.Component {
 
   onAddMessage(message) {
     console.log("sent");
-    // database
-    //   .ref(this.state.video)
-    //   .push({ user: this.state.user, msg: message });
+    database
+      .ref(this.state.video[0].id.videoId)
+      .push({ user: this.state.user, msg: message });
   }
 
   render() {
     return (
       <div>
-        <Nav
-          gRes={this.responseGoogle.bind(this)}
-          glogout={this.googleLogout.bind(this)}
-          user={this.state.user}
-        />
+        <div className="Nav">
+          <Nav
+            gRes={this.responseGoogle.bind(this)}
+            glogout={this.googleLogout.bind(this)}
+            user={this.state.user}
+          />
+        </div>
         <div className="gridBase">
           <div className="gridApp">
             <Home video={this.state.video} />

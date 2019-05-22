@@ -44,7 +44,6 @@ class Nav extends React.Component {
                   <img
                     className="userImage"
                     src={this.props.user.imageUrl}
-                    alt="Smiley face"
                   />
                   <div className="name">{this.props.user.name}</div>
                 </a>

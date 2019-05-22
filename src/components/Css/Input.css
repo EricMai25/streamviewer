@@ -1,0 +1,23 @@
+input[type=text]{
+    width: 65%;
+    float: left;
+    padding: 15px 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    top: 0;
+  }
+  .textButton {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    bottom: 0;
+    width: 35%;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    float: right;
+  }
+

@@ -1,6 +1,7 @@
 ul {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    overflow: hidden;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -36,8 +37,8 @@ ul {
     display: inline-block;
     border-radius : 50%;
     vertical-align: middle;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
 }
 
 .name{
@@ -51,7 +52,7 @@ ul {
 .login{
     height: 50%;
     float: right;
-    padding: 15px 15px;
+    padding: 10px 15px 5px 5px;
 }
 
 .logged{
