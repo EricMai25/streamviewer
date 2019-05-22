@@ -31,6 +31,8 @@ class Nav extends React.Component {
             {this.props.user === null ? (
               <div>
                 <GoogleLogin
+                  // clientId={KEY.web.client_id}
+                  // clientId={gApi}
                   clientId={gConfig}
                   icon="true"
                   buttonText="Login"

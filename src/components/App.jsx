@@ -49,6 +49,7 @@ class App extends React.Component {
     });
   }
   responseGoogle(response) {
+    console.log('helo')
     let profile = response.profileObj;
     this.setState({
       user: profile
