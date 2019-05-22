@@ -8,13 +8,11 @@ export default class Input extends React.Component {
       message: ""
     };
 
-    this.run = this.run.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log('here', this.props)
     if (this.props.user) {
       this.props.add(this.state.message);
       this.setState({
