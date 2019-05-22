@@ -1,15 +1,12 @@
 import React from "react";
+import Video from './Video.jsx'
 
 const home = props => {
   return (
     <div>
-      <iframe
-        src={"http://www.youtube.com/embed/" + props.video}
-        width="560"
-        height="315"
-        frameBorder="0"
-        allowFullScreen
-      />
+      {props.video.map(vids =>{
+        return <Video video={vids}/>
+      })}
     </div>
   );
 };

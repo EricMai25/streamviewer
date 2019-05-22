@@ -1,6 +1,8 @@
 import React from "react";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
-import KEY from "../../configs/config.json";
+// import KEY from "../../configs/config.json";
+import {gApi} from '../../server/server.js'
+import styles from "./Css/Nav.css";
 
 class Nav extends React.Component {
   constructor(props) {
@@ -12,25 +14,52 @@ class Nav extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.props.user === null ?
-          <GoogleLogin
-            clientId={KEY.web.client_id}
-            icon="true"
-            buttonText="Login"
-            onSuccess={this.props.gRes}
-            onFailure={this.props.gRes}
-            cookiePolicy={"single_host_origin"}
-          />
-         
-        : 
-        <div>
-            <div>{this.props.user.name}</div>
-            <img src={this.props.user.imageUrl} alt="Smiley face"/>
-          <GoogleLogout buttonText="Logout" onLogoutSuccess={this.props.glogout} />
+      <ul>
+        <div className="grid">
+          <li>
+            <a>Home</a>
+          </li>
         </div>
-        }
-      </div>
+        <div className="grid">
+          <li className="siteName">
+            <p>Top Streamer</p>
+          </li>
+        </div>
+
+        <div className="grid">
+          <div className="login">
+            {this.props.user === null ? (
+              <div>
+                <GoogleLogin
+                  // clientId={KEY.web.client_id}
+                  clientId={gApi}
+                  icon="true"
+                  buttonText="Login"
+                  onSuccess={this.props.gRes}
+                  onFailure={console.log("closed")}
+                  cookiePolicy={"single_host_origin"}
+                />
+              </div>
+            ) : (
+              <div>
+                <a>
+                  <img
+                    className="userImage"
+                    src={this.props.user.imageUrl}
+                  />
+                  <div className="name">{this.props.user.name}</div>
+                </a>
+                <a className="logged">
+                  <GoogleLogout
+                    buttonText="Logout"
+                    onLogoutSuccess={this.props.glogout}
+                  />
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+      </ul>
     );
   }
 }

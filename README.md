@@ -51,4 +51,22 @@ Streamer page:
     Page table
     Messages Table.
 
+## Youtube api
+
+    Pulling current top streamer in the gaming section from youtube.
+    
+## Google Log-in
+
+    Google React login.
+    Require:
+        Username - Used to display who's message is being shown
+        Icon - For asthetic purposes
+    
+## Fire base Api
+
+    Going to establish a collection for the current youtube channel that is shown.
+    If Collection does not exist it will make a new table and start filling up messages.
+
+        
+
 
