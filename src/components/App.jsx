@@ -16,23 +16,23 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-      this.getFirebase()
-    // fetch("/video", {
-    //   method: "GET",
-    //   headers: { "Content-type": "application/json" }
-    // })
-    //   .then(data => {
-    //     return data.json();
-    //   })
-    //   .then(videodata => {
-    //     this.setState({
-    //       video: videodata.items
-    //     });
-    //     this.getFirebase()
-    //   })
-    //   .catch(error=>{
-    //       console.log(error)
-    //   })
+      // this.getFirebase()
+    fetch("/video", {
+      method: "GET",
+      headers: { "Content-type": "application/json" }
+    })
+      .then(data => {
+        return data.json();
+      })
+      .then(videodata => {
+        this.setState({
+          video: videodata.items
+        });
+        this.getFirebase()
+      })
+      .catch(error=>{
+          console.log(error)
+      })
   }
   getFirebase(){
     let dataMessage = database

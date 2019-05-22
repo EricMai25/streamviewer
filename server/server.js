@@ -2,10 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const axios = require("axios");
-let fbApi  = process.env.firebaseConfig
-let gApi  = process.env.gApi
-let ytApi = process.env.YoutubeApi
 // const KEY = require("../configs/config.json");
+let fpApi = process.env.firebaseConfig;
+let gApi = process.env.gApi;
+let ytApi = process.env.YoutubeApi
 
 const app = express();
 const port = 3123;
@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "/../public")));
 
-app.get("/video", (req, res) => { 
+app.get("/video", (req, res) => {
   axios
     .get("https://www.googleapis.com/youtube/v3/search?part=snippet", {
       params: {
@@ -41,6 +41,6 @@ app.listen(port, () => {
 });
 
 module.exports = {
-    fbApi,
+    fpApi,
     gApi
 }
