@@ -9,7 +9,6 @@ let ytApi = process.env.YoutubeApi
 
 const app = express();
 const port = 3123;
-console.log('what' , process.env)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "/../public")));
@@ -30,8 +29,6 @@ app.get("/video", (req, res) => {
       }
     })
     .then(response => {
-      console.log("hello there");
-
       res.send(response.data);
     })
     .catch(error => {
