@@ -9,7 +9,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // video: [{id:{videoId : "hHW1oY26kxQ"},snippet :{user : "something" , description : 'something'}}],
       video: [],
       messages: [],
       user: null,
@@ -17,7 +16,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-      // this.getFirebase()
     fetch("/video", {
       method: "GET",
       headers: { "Content-type": "application/json" }
@@ -49,7 +47,6 @@ class App extends React.Component {
     });
   }
   responseGoogle(response) {
-    console.log('helo')
     let profile = response.profileObj;
     this.setState({
       user: profile

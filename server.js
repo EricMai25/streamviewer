@@ -3,10 +3,9 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const axios = require("axios");
 require('dotenv').config()
-// const KEY = require("../configs/config.json");
-let fpApi = process.env.firebaseConfig;
-let gApi = process.env.gApi;
-let ytApi = process.env.YoutubeApi
+// let fpApi = process.env.firebaseConfig;
+// let gApi = process.env.gApi;
+// let ytApi = process.env.YoutubeApi
 
 const app = express();
 const port =process.env.PORT || 3123;
@@ -28,7 +27,6 @@ app.get("/video", (req, res) => {
         videoCategoryId: 20,
         maxResults: 1,
         key: ytApi
-        // key: KEY.api
       }
     })
     .then(response => {
@@ -43,7 +41,3 @@ app.listen(port, () => {
   console.log("Listening to " + port);
 });
 
-module.exports = {
-    fpApi,
-    gApi
-}
