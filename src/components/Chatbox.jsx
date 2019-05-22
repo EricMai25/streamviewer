@@ -1,8 +1,6 @@
 import React from "react";
 import Input from "./chatComponents/Input.jsx";
 import Message from "./chatComponents/Message.jsx";
-import { database } from "./database/Firebase";
-
 import styles from "./Css/Chatbox.css";
 
 class ChatRoom extends React.Component {
