@@ -2,6 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const axios = require("axios");
+let fbApi
+let gApi
+let ytApi
 // const KEY = require("../configs/config.json");
 
 const app = express();
@@ -42,6 +45,6 @@ app.listen(port, () => {
 });
 
 module.exports = {
-    firebase = process.env.firebaseConfig,
+    fbApi = process.env.firebaseConfig,
     gApi = process.env.gApi
 }
