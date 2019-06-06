@@ -13,7 +13,7 @@ export default class Input extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.props.user) {
+    if (this.props.user && this.state.message) {
       this.props.add(this.state.message);
       this.setState({
         message: ""
